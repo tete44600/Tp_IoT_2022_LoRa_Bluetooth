@@ -17,3 +17,6 @@ La fonction "reconnect()" est utilisée pour reconnecter le client MQTT lorsque 
 La fonction "callback()" est appelée lorsque le client MQTT reçoit un message et elle est utilisée pour extraire les données reçues.
 
 La boucle "loop()" est exécutée en continu. Elle vérifie si le client MQTT est connecté et si un paquet LoRa est reçu. Si c'est le cas, elle extrait les données du paquet et les envoie au serveur MQTT.
+
+
+Maxence, Théo, Florian
