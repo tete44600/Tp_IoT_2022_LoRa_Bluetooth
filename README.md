@@ -1,22 +1,19 @@
-# Tp_IoT_2022_LoRa_Bluetooth
+Les premières lignes du code importent les bibliothèques nécessaires pour le fonctionnement du programme, à savoir "WiFi.h" pour la connexion Wi-Fi, "PubSubClient.h" pour la communication MQTT, "SPI.h" pour la communication SPI et "LoRa.h" pour la communication LoRa.
 
-## 1. Client :
- 
-### 1. Récupération d'un paquet Mqtt sur test.mosquitto.org :  nomAP/ipaddr
+Ensuite, il y a des définitions de constantes pour les broches utilisées pour la communication SPI avec le module LoRa.
 
-### 2. Se connecter à une carte sur l'AP et faire une requete http donnant les valeurs nécessaire à LoRa.
+Les lignes suivantes définissent les noms d'utilisateur et mot de passe du réseau Wi-Fi ainsi que le serveur MQTT utilisé.
 
-### 3. Ecouter les données de LoRa.
+La variable "verif" est définie pour savoir si la connexion LoRa a déjà été configurée ou non.
 
-## 2. Serveur :
+La structure de l'union "pack" est définie pour stocker les données de LoRa.
 
-### Faire le serveur servant les données au Client.
+La fonction "setup_wifi()" est définie pour établir une connexion Wi-Fi.
 
-## 3. Ensuite...
+La fonction "setup()" est appelée au début du programme pour initialiser les broches utilisées et la connexion MQTT.
 
-### 1. Ajouter une fonction permettant de switcher entre Serveur et Client
+La fonction "reconnect()" est utilisée pour reconnecter le client MQTT lorsque la connexion est perdue.
 
-### 2. Sur le serveur, échangez la partie LoRa par du bluetooth (ou BLE)
+La fonction "callback()" est appelée lorsque le client MQTT reçoit un message et elle est utilisée pour extraire les données reçues.
 
-### 3. Refaire la partie cliente pour répondre au bluetooth
-
+La boucle "loop()" est exécutée en continu. Elle vérifie si le client MQTT est connecté et si un paquet LoRa est reçu. Si c'est le cas, elle extrait les données du paquet et les envoie au serveur MQTT.
